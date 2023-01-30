@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react'
+import Navbar from './Components/Navbar';
+import News from './Components/News';
+
+export default class App extends Component {
+  // render is a life cycle method(jb react ek component ko load krti h to kuch series of method run hote h) 
+  // jb render mthod run hote h to screen pe html ko(phle jsx ko html me compile krna then render krna) render krna
+  render() {
+    return (
+      <div>
+        <Navbar/>
+        <News/>
+      </div>
+    )
+  }
 }
 
-export default App;

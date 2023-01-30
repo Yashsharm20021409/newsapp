@@ -1,0 +1,13 @@
+<!-- 
+class Based component is simple to use first create new class which is extended an existing class called component
+1. export default class means export this for index.js to insert app.js in html file using index.js 
+
+difference 
+as you can here we simply return a function(render func) inside the class but in function based we directly return the function
+but this is not the main diff (the main diffrenece is in state and props and you can create sevral method )
+->we can create sevral variable without let,const.. and use them insde the class like {this.varName} and inside state aslo
+
+// render is a life cycle method(jb react ek component ko load krti h to kuch series of method run hote h) 
+// jb render mthod run hote h to screen pe html ko(phle jsx ko html me compile krna then render krna) render krna
+
+-->
