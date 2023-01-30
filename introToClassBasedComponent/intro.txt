@@ -11,3 +11,6 @@ but this is not the main diff (the main diffrenece is in state and props and you
 // jb render mthod run hote h to screen pe html ko(phle jsx ko html me compile krna then render krna) render krna
 
 -->
+
+
+NOTE:- In class we alwys call all item= function/variable/props/state using this.Name_Of_Item always
