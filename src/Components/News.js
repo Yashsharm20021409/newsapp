@@ -29,18 +29,22 @@ export default class News extends Component {
   // async always work with await only without async cant use await and vice verse
   async componentDidMount() {
     try {
+      this.props.setProgress(10)
       let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e47e5c87bb9c4fffbeb851c5bcc15adc&page=1`;
-
+      
       this.setState({ loading: true })
       let data = await fetch(url);
+      this.props.setProgress(30)
       let parsedData = await data.json();
+      this.props.setProgress(60)
       this.setState({
         article: parsedData.articles,
         totalResults: parsedData.totalResults,
         loading: false
       });
       // console.log("parsed Data ",parsedData);
-      console.log(this.totalResults)
+      // console.log(this.totalResults)
+      this.props.setProgress(100)
     }
     catch (e) {
       console.log("something is not working");
@@ -92,6 +96,7 @@ export default class News extends Component {
   fetchMoreData = async () => {
     // a fake async api call like which sends
     // 20 more records in 1.5 secs
+    
     this.setState({
       page: this.state.page + 1
     })
@@ -101,10 +106,10 @@ export default class News extends Component {
     let parsedData = await data.json();
     this.setState({
       article: this.state.article.concat(parsedData.articles),
-      page: this.state.page - 1,
       loading: false,
       totalResults: parsedData.totalResults
     });
+    
   };
 
   render() {
@@ -112,20 +117,20 @@ export default class News extends Component {
       <>
       {/* // <div className='container my-3'> */}
           <h2 className="text-center">NewsThunder - Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
-
-          {/* {this.state.loading && <Spinner/>}
-        <div className="container d-flex justify-content-between">
+          {/* to show spinner before first time fetching the api */}
+          {this.state.loading && <Spinner/>}
+        {/* <div className="container d-flex justify-content-between">
           not able to click prev button is this.state.page is less then or equal to 1
           <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}> &larr;
             Previous</button>
           <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
-        </div> */}
+        </div> */} 
 
           <InfiniteScroll
             dataLength={this.state.article.length}
             next={this.fetchMoreData}
             hasMore={this.state.article.length !== this.state.totalResults}
-            loader={<h4>{<Spinner />}</h4>}
+            loader={this.state.loading&&<Spinner/>}
           >
             <div className="container">
               <div className="row" >
