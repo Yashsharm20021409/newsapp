@@ -19,3 +19,19 @@ NOTE:- In class we alwys call all item= function/variable/props/state using this
 #About react component lifeCycle(v.imp)
 video me file h
 
+
+Note:- The Work done by any life cycle component in class based component is done by hook in function based component
+
+<--------------------------------------------------------------------------->
+
+Note:- What are React Hooks?
+ 1.Features of Class based components in function based components
+ 2.It allows you to use state and other React features without writing a class.
+ 3.Hooks are the functions which "hook into" React state and lifecycle features from function components
+
+
+#commonly used react Hooks
+1.useState
+2.useEffect
+3.useContext
+4.useRef
