@@ -14,3 +14,8 @@ but this is not the main diff (the main diffrenece is in state and props and you
 
 
 NOTE:- In class we alwys call all item= function/variable/props/state using this.Name_Of_Item always
+
+
+#About react component lifeCycle(v.imp)
+video me file h
+
